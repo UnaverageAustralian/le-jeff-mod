@@ -3,6 +3,7 @@ package net.unavgaustralian.jeff;
 import net.fabricmc.api.ModInitializer;
 
 import net.unavgaustralian.jeff.block.ModBlocks;
+import net.unavgaustralian.jeff.events.Void;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -13,5 +14,6 @@ public class LeJeff implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		ModBlocks.registerModBlocks();
+		Void.register();
 	}
 }
