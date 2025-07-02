@@ -1,0 +1,41 @@
+{
+	"schemaVersion": 1,
+	"id": "le-jeff",
+	"version": "${version}",
+	"name": "Le Jeff",
+	"description": "Horror",
+	"authors": [
+		"UnavgAustralian",
+		"Jeff himself"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "MIT",
+	"icon": "assets/le-jeff/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"net.unavgaustralian.jeff.LeJeff"
+		],
+		"fabric-datagen": [
+			"net.unavgaustralian.jeff.LeJeffDataGenerator"
+		],
+		"client": [
+			"net.unavgaustralian.jeff.LeJeffClient"
+		]
+	},
+	"mixins": [
+		"le-jeff.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.16.14",
+		"minecraft": "~1.21.1",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
