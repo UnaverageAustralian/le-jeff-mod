@@ -1,6 +1,5 @@
 package net.unavgaustralian.jeff.events;
 
-import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.server.MinecraftServer;
@@ -20,13 +19,13 @@ public class Void {
         BlockPos center = BlockPos.ofFloored(Objects.requireNonNull(world.getRandomAlivePlayer()).getPos());
 
         for (int attempts = 0; attempts < 1000; attempts++) {
-            int dx = random.nextInt(201) - 100;
-            int dy = random.nextInt(201) - 100;
-            int dz = random.nextInt(201) - 100;
+            int dx = random.nextInt(21) - 10;
+            int dy = random.nextInt(21) - 10;
+            int dz = random.nextInt(21) - 10;
             BlockPos pos = center.add(dx, dy, dz);
 
             BlockState state = world.getBlockState(pos);
-            if (state.isAir() || !state.isOpaque()) {
+            if (state.isAir() || state.getBlock() == Blocks.WATER || state.getCollisionShape(world, pos).isEmpty()) {
                 continue;
             }
 
