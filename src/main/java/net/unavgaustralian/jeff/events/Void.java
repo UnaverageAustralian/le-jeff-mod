@@ -13,30 +13,7 @@ import java.util.Objects;
 import java.util.Random;
 
 public class Void {
-    private static int tickCounter = 0;
-    private static int tickToWait = GenerateRandomTick();
-
-    private static int GenerateRandomTick() {
-        double ranTick = Math.random();
-        ranTick *= 2500;
-        ranTick = Math.floor(ranTick);
-        ranTick += 4750;
-        return (int)ranTick;
-    }
-
-    public static void register() {
-        ServerTickEvents.END_SERVER_TICK.register(server -> {
-            tickCounter++;
-            System.out.println("Tick: " + tickCounter + "\n Tick to wait: " + tickToWait);
-            if (tickCounter >= tickToWait) {
-                tickCounter = 0;
-                tickToWait = GenerateRandomTick();
-                replaceRandomBlock(server);
-            }
-        });
-    }
-
-    private static void replaceRandomBlock(MinecraftServer server) {
+    public static void replaceRandomBlock(MinecraftServer server) {
         ServerWorld world = server.getOverworld();
         Random random = new Random();
 
